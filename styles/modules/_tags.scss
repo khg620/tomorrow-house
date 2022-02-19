@@ -1,0 +1,29 @@
+%tag-base {
+  //플레이스홀더가 믹스인보다 확장성 떨어진다
+  //공통 스타일
+  @include inline-flexbox;
+  @include text-style(12);
+  height: 20px;
+  padding: 0 6px;
+  font-weight: 700;
+  border-radius: 4px;
+}
+
+.tag-red {
+  //관련된 것들을 콤마로 구분, 합쳐서 렌더
+  @extend %tag-base;
+  color: $white;
+  background-color: $red;
+}
+
+.tag-green {
+  @extend %tag-base;
+  color: $white;
+  background-color: $green;
+}
+
+.tag-gray {
+  @extend %tag-base;
+  color: $secondary;
+  background-color: $border;
+}
