@@ -1,0 +1,64 @@
+.sidebar {
+  width: 240px;
+  padding: 32px 20px;
+  background-color: $white;
+
+  &-header {
+    padding: 0 12px;
+
+    .logo {
+      @include flexbox(start);
+      //a의 타겟영역을 딱 로고만큼
+
+      a {
+        display: block;
+      }
+      img {
+        display: block;
+        width: auto;
+        height: 20px;
+      }
+    }
+  }
+
+  &-user,
+  &-auth {
+    @include flexbox(start);
+    height: 88px;
+  }
+
+  &-user {
+    //padding: 32px 0;
+    a {
+      @include flexbox(start);
+      @include text-style(14, $primary);
+      width: 100%; //truncate
+      font-weight: 700;
+    }
+
+    .avatar-24 {
+      flex-grow: 0;
+      flex-shrink: 0;
+      margin-right: 8px;
+    }
+
+    .username {
+      //★ truncate
+      //inline 속성이 어떤 기준 너비 이상으로 넘칠 때 말줄임 표시하기
+      //overflow 기준 너비가 지정이 되어야 의도대로 작동
+      flex-grow: 1; //최대폭 지정, px값으로 고정하는 것보다 유지보수에 좋은 방식
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  &-auth {
+    @include flexbox(between);
+    //padding: 24px 0;
+
+    a {
+      width: 84px;
+    }
+  }
+}
