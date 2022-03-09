@@ -1,11 +1,14 @@
-body {
-  background-color: black;
-}
-
 .sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: $sidebar-level;
   width: 240px;
+  height: 100vh; //overflow 설정 시 width, height 값 지정
   padding: 32px 20px;
+  overflow-y: auto; //scroll되도록
   background-color: $white;
+  overscroll-behavior: contain; //★ 스크롤 시 뒤 영역(overlay부분) 스크롤 방지
 
   &-header {
     padding: 0 12px;
@@ -97,4 +100,14 @@ body {
       }
     }
   }
+
+  &::-webkit-scrollbar {
+    display: none;
+    //width: 10px;
+    //background-color: hotpink;
+  }
+
+  //&::-webkit-scrollbar-thumb {
+  //background-color: blue;
+  //}
 }
