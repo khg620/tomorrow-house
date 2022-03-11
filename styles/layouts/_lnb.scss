@@ -1,0 +1,55 @@
+.lnb {
+  overflow-x: auto;
+  //★ 시안대로 전체 너비 기준으로 스크롤 하려면 overflow 기준점으로 .lnb-list가 아닌 .lnb가 적절
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &-list {
+    //@include flexbox(start);
+    //★ block의 성질
+    //width값 미지정 시 부모요소의 컨텐트 박스의 width를 자동으로 가짐
+
+    //width: max-content;
+    // ★ overflow 되는 기준 너비보다 넓은 요소 만들기
+    // 방법 1 : max-content; 단점은 호환성
+    // %는 '부모' 요소의 컨텐트 박스 길이 기준으로 함
+    // ★ max-content와 min-content는 자신이 가진 '자손'의 사이즈가 특정값으로 고정되지 않았을 때 의미있게 사용 가능
+
+    //방법 2
+    @include inline-flexbox(start);
+    // inline-block의 성질
+    // width값 미지정 시 자신이 가진 컨텐트 기준으로 사이즈를 가짐
+    white-space: nowrap;
+    // inline 요소야 한 줄을 유지해라
+
+    position: relative;
+    left: -8px;
+  }
+
+  &-item {
+    //flex-shrink: 0; 방법 2 사용 시 필요 X
+
+    &.is-active {
+      a {
+        color: $blue;
+        border-bottom: 2px solid $blue;
+      }
+    }
+
+    a {
+      @include inline-flexbox;
+      //inline-block의 성격을 갖도록
+      //width 지정 안 하면 기본적으로 자신이 가진 컨텐츠의 width를 가짐
+      @include text-style(13, $dark);
+      height: 40px;
+      padding: 0 8px;
+      font-weight: 700;
+    }
+
+    .ic-new {
+      color: $red;
+    }
+  }
+}
