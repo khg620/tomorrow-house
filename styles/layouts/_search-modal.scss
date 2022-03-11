@@ -7,6 +7,16 @@
   height: 100vh;
   padding: 12px 0;
   background-color: $white;
+  transform: translate3d(100%, 0, 0);
+  transition: transform 300ms ease-in-out;
+  //★ 토글
+  // right: -100%; (search-modal이 기준으로 삼고있는 부모의 width의 100% - 뷰포트의 100%)
+  // 또는 margin-left: -100vw;
+  // transition 효과를 위해 trasform 사용 권장
+
+  &.is-active {
+    transform: translate3d(0, 0, 0);
+  }
 
   &-header {
     margin-bottom: 20px;
