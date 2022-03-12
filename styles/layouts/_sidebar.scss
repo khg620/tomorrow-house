@@ -1,5 +1,6 @@
 .sidebar {
   $sidebar-width: 240px;
+  @include no-scrollbar;
 
   position: fixed;
   top: 0;
@@ -10,7 +11,7 @@
   padding: 32px 20px;
   overflow-y: auto; //scroll되도록
   background-color: $white;
-  transform: translate3d(-#{$sidebar-width}, 0, 0);
+  transform: translate3d(-#{$sidebar-width}, 0, 0); // 사이드바 토글
   transition: transform 300ms ease-in-out;
   overscroll-behavior: contain; //★ 스크롤 시 뒤 영역(overlay부분) 스크롤 방지
 
@@ -109,11 +110,11 @@
     }
   }
 
-  &::-webkit-scrollbar {
-    display: none;
-    //width: 10px;
-    //background-color: hotpink;
-  }
+  //&::-webkit-scrollbar {
+  //display: none;
+  //width: 10px;
+  //background-color: hotpink;
+  //} mixin refactoring
 
   //&::-webkit-scrollbar-thumb {
   //background-color: blue;

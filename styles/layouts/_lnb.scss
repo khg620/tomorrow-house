@@ -17,9 +17,7 @@
   //  => lnb가 아닌 다른 요소에 height와 border를 주는 수밖에 없다
   //border-bottom: 1px solid $border;
 
-  &::-webkit-scrollbar {
-    display: none;
-  }
+  @include no-scrollbar;
 
   &-list {
     //@include flexbox(start);
