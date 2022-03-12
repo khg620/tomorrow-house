@@ -30,6 +30,7 @@
       display: block;
       padding: $padding; //사용성 개선을 위해 영역 확장
       font-weight: 700;
+      white-space: nowrap;
     }
   }
 }
