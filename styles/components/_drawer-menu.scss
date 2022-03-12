@@ -79,7 +79,7 @@
   }
 
   &-content {
-    // ★ 아코디언 메뉴 부드럽게
+    // ★ 아코디언 메뉴 부드럽게, 토글
     //display: none;
     //transition: display 200ms ease-in-out;
     //★ transition을 줄 수 없는 CSS properties : display
@@ -106,7 +106,6 @@
 
     .ic-new {
       font-size: 16px;
-      color: $red;
     }
   }
 }
