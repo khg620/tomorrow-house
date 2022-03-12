@@ -7,14 +7,23 @@
     position: fixed;
     left: 0;
     width: 100%;
+
+    // ★ z-index를 준 요소의 부모 중 단 하나라도 position이 static이 아니어서 의미있는 z-index를 갖게 되는 경우 그 z-index가 우선순위 가짐
+    // my-menu-content에 z-index 10000을 주고, lnb에 z-index 0을 줘도
+    // my-menu-content의 부모 gnb의 z-index가 auto
+    // lnb가 gnb보다 마크업이 뒤에 있음
+    // => z-index: gnb < lnb
+    // 따라서 gnb에 z-index 지정
   }
 
   .gnb {
     top: 0;
+    z-index: $gnb-level;
   }
 
   .lnb {
     top: $gnb-height-sm;
+    z-index: $lnb-level;
   }
 
   @include responsive(T) {
