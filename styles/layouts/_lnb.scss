@@ -1,6 +1,21 @@
 .lnb {
+  $lnb-link-padding: 8px;
+  $grid-margin: $sm-margin + $gutter / 2;
+
   overflow-x: auto;
   //★ 시안대로 전체 너비 기준으로 스크롤 하려면 overflow 기준점으로 .lnb-list가 아닌 .lnb가 적절
+
+  //height: 40px;
+  // ★ height 미지정 시 자신이 가진 컨텐트의 높이만큼을 가짐
+  // -> border 를 주면 41px이 되므로 height를 40px로 명시했다.
+  // 그러면 이제 border 포함 40px이므로 lnb의 컨텐츠 높이는 39px을 갖게 되고
+  // lnb 안에 있는 a는 40px이므로 border 2px 중 1px이 가려진다
+  // (그래서 아래로 스크롤 되는 것)
+  //overflow-y: visible;
+  // 넘쳐나는 1px을 visible로 설정하여 a의 border가 lnb의 border를 덮어보이게 만든다
+  // ★ 그러나 overflow auto 속성 사용 시 다른 overflow 값도 auto 설정이 되므로 사용 불가
+  //  => lnb가 아닌 다른 요소에 height와 border를 주는 수밖에 없다
+  //border-bottom: 1px solid $border;
 
   &::-webkit-scrollbar {
     display: none;
@@ -24,8 +39,13 @@
     white-space: nowrap;
     // inline 요소야 한 줄을 유지해라
 
-    position: relative;
-    left: -8px;
+    //position: relative;
+    //left: -8px;
+    margin-left: -#{$grid-margin};
+    padding: 0 #{$grid-margin - $lnb-link-padding};
+
+    height: 40px;
+    border-bottom: 1px solid $border; //overflow-x, y 모두 visible
   }
 
   &-item {
@@ -34,7 +54,8 @@
     &.is-active {
       a {
         color: $blue;
-        border-bottom: 2px solid $blue;
+        //border-bottom: 2px solid $blue;
+        border-bottom-color: $blue;
       }
     }
 
@@ -44,12 +65,10 @@
       //width 지정 안 하면 기본적으로 자신이 가진 컨텐츠의 width를 가짐
       @include text-style(13, $dark);
       height: 40px;
-      padding: 0 8px;
+      padding: 0 $lnb-link-padding;
       font-weight: 700;
-    }
-
-    .ic-new {
-      color: $red;
+      border-bottom: 2px solid transparent;
+      //보더로 인해 글자 세로 정렬이 살짝 어긋나서 맞춰주기 위해
     }
   }
 }
