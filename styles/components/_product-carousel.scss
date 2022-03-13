@@ -49,5 +49,50 @@
   }
 
   @include responsive(T) {
+    padding-right: 30px;
+
+    &-slider {
+      margin: 0 0 8px 0;
+      overflow: hidden;
+      border-radius: 4px;
+    }
+
+    &-thumbnail {
+      position: static;
+      transform: none;
+    }
+
+    .thumbnail-list {
+      justify-content: flex-start;
+    }
+
+    .thumbnail-item {
+      margin: 0 8px 0 0;
+
+      &.tns-nav-active {
+        button {
+          border: 2px solid $blue;
+          transform: none;
+        }
+      }
+
+      button {
+        @include flexbox;
+        //active 상태일 때 border가 생기며 컨텐트 크기가 줆
+        // -> 안에 img가 내려가고, 잘림
+        // -> flexbox center 정렬하여 같은 위치에 유지되도록 함
+        width: 56px;
+        height: 56px;
+        overflow: hidden;
+        border-radius: 4px;
+        opacity: 1;
+      }
+
+      img {
+        display: block;
+        width: 56px;
+        // active 상태일 때 button의 border로 인해 크기 줄어듦을 방지하고자 width 지정
+      }
+    }
   }
 }
