@@ -1,0 +1,65 @@
+.checkout-card {
+  position: relative;
+  padding: 8px 10px 8px 12px;
+  background-color: $background;
+  border-radius: 4px;
+
+  .checkout-header {
+    margin-bottom: 8px;
+  }
+
+  .checkout-title {
+    @include text-style(13, $primary);
+    padding-right: 36px - 10px;
+    font-weight: 400;
+  }
+
+  .delete-button {
+    @include inline-flexbox; //i 중앙정렬
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 20px;
+    height: 20px;
+    font-size: 20px; //i의 size므로 button width, height를 주어 버튼이 정확히 20px 차지하게 만든다
+    color: $secondary;
+  }
+
+  .checkout-footer {
+    @include flexbox(between);
+  }
+
+  .checkout-select {
+    position: relative;
+    display: inline-block;
+
+    select {
+      @include text-style(14, $primary);
+      width: 72px;
+      height: 24px;
+      padding: 0 8px;
+      line-height: 1;
+      // ★ border때문에 컨텐트 높이가 22px
+      // -> 텍스트의 line-height는 24px이어서 내려가 보임
+      // line-height를 22px 또는 1로 주면 중앙에 맞춰짐
+      background-color: $white;
+      border: 1px solid $border;
+      border-radius: 3px;
+      appearance: none; //※ select 기본 화살표
+    }
+
+    i {
+      @include pos-center-y;
+      right: 2px;
+      font-size: 20px;
+      color: $tertiary;
+      pointer-events: none;
+    }
+  }
+
+  @include responsive(D) {
+    .checkout-title {
+      @include text-style(16);
+    }
+  }
+}
