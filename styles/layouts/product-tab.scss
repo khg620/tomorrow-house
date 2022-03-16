@@ -1,0 +1,49 @@
+.product-tab {
+  $grid-margin: $sm-margin + $gutter / 2;
+
+  width: 100%;
+  height: 40px;
+  background-color: $background;
+  border-bottom: 1px solid $border;
+
+  &-list {
+    @include flexbox;
+    margin: 0 -#{$grid-margin};
+  }
+
+  &-item {
+    width: (100% / 5);
+
+    &.is-active {
+      button {
+        color: $blue;
+        border-bottom-color: $blue;
+        // ★ issue
+        // border 생겨서 컨텐트 높이가 줄어들어 글자 가운데 정렬이 살짝 올라가게 됨
+        // =>  기본으로 border 가지고 색깔만 바뀌는 걸로 변경
+      }
+    }
+
+    button {
+      @include flexbox;
+      @include text-style(13, $dark);
+      width: 100%;
+      //inline-block 이라서 사이즈 미지정 시 컨텐츠 크기만큼만 차지
+      //사이즈 지정하여 부모요소(&-item) 너비, 높이만큼 먹도록
+      height: 40px;
+      font-weight: 700;
+      white-space: nowrap;
+      //★ 리뷰수 많은 경우 디자인 깨지므로 안 깨지도록
+      border-bottom: 2px solid transparent;
+
+      &:active {
+        color: $blue;
+      }
+    }
+
+    .badge {
+      margin-left: 4px;
+      color: $secondary;
+    }
+  }
+}
