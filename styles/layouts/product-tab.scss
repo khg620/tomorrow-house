@@ -3,7 +3,7 @@
 
   width: 100%;
   height: 40px;
-  background-color: $background;
+  background-color: $white;
   border-bottom: 1px solid $border;
 
   &-list {
@@ -29,7 +29,7 @@
       @include text-style(13, $dark);
       width: 100%;
       //inline-block 이라서 사이즈 미지정 시 컨텐츠 크기만큼만 차지
-      //사이즈 지정하여 부모요소(&-item) 너비, 높이만큼 먹도록
+      //사이즈 지정하여 부모요소(&-item) 너비, 높이만큼 먹도록 한 후 가운데정렬(flexbox)
       height: 40px;
       font-weight: 700;
       white-space: nowrap;
@@ -44,6 +44,31 @@
     .badge {
       margin-left: 4px;
       color: $secondary;
+    }
+  }
+
+  @include responsive(T) {
+    height: 54px;
+    background-color: $background;
+    border-bottom: 0;
+
+    &-item {
+      button {
+        @include text-style(16);
+        height: 54px;
+      }
+
+      .badge {
+        margin-left: 8px;
+      }
+    }
+  }
+
+  @include responsive(D) {
+    &-item button {
+      &:hover {
+        color: $blue;
+      }
     }
   }
 }
