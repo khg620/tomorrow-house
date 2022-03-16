@@ -1,0 +1,44 @@
+.product-table {
+  $table-cell-padding: 12px;
+  $table-th-width-sm: 100px;
+  $table-th-width-md: 140px + $table-cell-padding;
+
+  width: 100%;
+
+  //★ table 필수 설정 2세트(대부분의 테이블 커버 가능)
+  border-collapse: collapse;
+  table-layout: fixed; //table size 고정
+
+  tr {
+    @include text-style(12, $primary);
+    text-align: left;
+    vertical-align: top;
+    // table 텍스트 세로 정렬 vertical-align
+    border-bottom: 1px solid $border;
+  }
+
+  th,
+  td {
+    padding: $table-cell-padding;
+  }
+
+  th {
+    width: $table-th-width-sm + $table-cell-padding;
+    font-weight: 400;
+    color: $secondary;
+  }
+
+  td {
+    padding-left: 0;
+  }
+
+  @include responsive(T) {
+    tr {
+      @include text-style(14);
+    }
+
+    th {
+      width: $table-th-width-md + $table-cell-padding;
+    }
+  }
+}
