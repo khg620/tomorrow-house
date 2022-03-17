@@ -1,6 +1,4 @@
 .product-tab {
-  $grid-margin: $sm-margin + $gutter / 2;
-
   // ★ fixed on scroll
   position: sticky;
   top: $gnb-height-sm + $lnb-height-sm;

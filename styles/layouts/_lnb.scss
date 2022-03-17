@@ -1,6 +1,5 @@
 .lnb {
   $lnb-link-padding: 8px;
-  $grid-margin: $sm-margin + $gutter / 2;
 
   overflow-x: auto;
   //★ 시안대로 전체 너비 기준으로 스크롤 하려면 overflow 기준점으로 .lnb-list가 아닌 .lnb가 적절
