@@ -1,5 +1,45 @@
 .product-spec {
+  position: relative;
+  height: 470px; //접혀있을 때
+  overflow: hidden;
   padding-top: 20px;
+
+  &.is-open {
+    height: auto;
+
+    .button-wrapper {
+      display: none;
+    }
+  }
+
+  .button-wrapper {
+    position: absolute;
+    //★별도 width값 지정 안 하면 자기가 가진 컨텐트 크기만큼만 가짐
+    bottom: 0;
+    left: 0;
+    width: 100%; //부모요소 너비만큼!
+    padding-bottom: 20px;
+    background-color: $white;
+    //padding-bottom, background-color -> 밑에서 20px 띄우면 이미지가 살짝 삐져나오는 것 가리기
+
+    //★ 그라데이션 - background-image: linear-gradient();
+    &::before {
+      position: absolute;
+      //button-wrapper(div)는 height 미지정 시 자식요소들 합만큼 높이를 가짐을 방지
+      bottom: 20px + 55px;
+      left: 0;
+      display: block;
+      //가상요소는 기본적으로 inline이므로 width 지정 위해
+      width: 100%;
+      height: 64px;
+      background-image: linear-gradient(to top, $white 0%, transparent 100%);
+      content: '';
+    }
+
+    button {
+      width: 100%;
+    }
+  }
 
   figure {
     img {
