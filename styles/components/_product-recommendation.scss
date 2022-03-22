@@ -13,6 +13,22 @@
     &:nth-child(2) {
       margin-bottom: 20px;
     }
+
+    a {
+      display: block;
+      // ★ inline 요소이므로 width, height를 가질 수 없다.
+      // 그래서 개발자도구로 보면 auto, auto로 되어있음을 볼 수 있다. 클릭하는 데 문제는 없지만 display를 block으로
+
+      &:active {
+        img {
+          transform: scale(1.1);
+        }
+
+        .product-card-title {
+          opacity: 0.5;
+        }
+      }
+    }
   }
 
   @include responsive(T) {
@@ -23,6 +39,18 @@
 
       &:last-child {
         display: none;
+      }
+    }
+  }
+
+  @include responsive(D) {
+    .product-item a:hover {
+      img {
+        transform: scale(1.1);
+      }
+
+      .product-card-title {
+        opacity: 0.5;
       }
     }
   }
