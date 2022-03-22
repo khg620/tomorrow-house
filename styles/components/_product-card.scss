@@ -34,6 +34,7 @@
   &-title {
     @include text-style(13, $dark);
     //상품명 타이포그라피는 예외이므로 직접 설정
+    @include line-clamp(2);
     font-weight: 400;
     line-height: 16px;
   }
