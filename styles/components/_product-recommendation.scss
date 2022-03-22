@@ -21,7 +21,8 @@
 
       &:active {
         img {
-          transform: scale(1.1);
+          transform: translate(-50%, -50%) scale(1.1);
+          // pos-center의 translate가 scale로 덮어씌어지므로 다시 부여
         }
 
         .product-card-title {
@@ -46,7 +47,7 @@
   @include responsive(D) {
     .product-item a:hover {
       img {
-        transform: scale(1.1);
+        transform: translate(-50%, -50%) scale(1.1);
       }
 
       .product-card-title {
