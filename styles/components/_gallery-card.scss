@@ -4,10 +4,21 @@
   border-radius: 6px;
 
   &-image {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    // ★ 사이즈가 가변하는 이미지를 동일한 크기로 맞추기 : 반응형 CSS 종횡비
+    // height를 width 기준으로 맞추기 위해 padding-bottom을 이용
+
     img {
+      @include pos-center;
       display: block;
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
+      // ★ 종횡비 맞추기 위해 width, height, object-fit 설정
+      //단, block 요소는 height가 (부모) 0의 100%가 되므로 position 이용
     }
   }
 
