@@ -1,0 +1,48 @@
+.gallery-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+
+  &-image {
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &-detail {
+    @include flexbox(start);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    // ★ absolute 시 자신이 가진 컨텐트 크기만큼 다이어트하므로
+    height: 54px;
+    padding: 0 16px;
+    background-color: rgba($black, 0.4);
+
+    .avatar-32,
+    .order {
+      flex-shrink: 0;
+      // ★ username과 order를 양 사이드에 배치하기 위해
+    }
+
+    .avatar-32 {
+      margin-right: 8px;
+    }
+
+    .username,
+    .order {
+      @include text-style(16, $white);
+    }
+
+    .username {
+      @include truncate;
+      flex-grow: 1;
+      // ★ username과 order를 양 사이드에 배치하기 위해
+      padding-right: 8px;
+      font-weight: 700;
+    }
+  }
+}
