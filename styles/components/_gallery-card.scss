@@ -41,6 +41,10 @@
 
     .avatar-32 {
       margin-right: 8px;
+
+      &:active {
+        opacity: 0.4;
+      }
     }
 
     .username,
@@ -54,6 +58,22 @@
       // ★ username과 order를 양 사이드에 배치하기 위해
       padding-right: 8px;
       font-weight: 700;
+
+      &:active {
+        color: $blue;
+      }
+    }
+  }
+
+  @include responsive(D) {
+    &-detail {
+      .avatar-32:hover {
+        opacity: 0.4;
+      }
+
+      .username:hover {
+        color: $blue;
+      }
     }
   }
 }
