@@ -44,6 +44,8 @@ function toggleOrderCtaBookmark() {
     newCount = newCount + 1
   }
 
+  //★ setAttribute()
+  countSpan.setAttribute('aria-label', `북마크 ${newCount.toLocaleString()}회`) //★ template literal : 변수를 넣을 수 있다
   countSpan.innerHTML = newCount.toLocaleString()
   // ★ 자릿수 표현 toLocaleString()
   this.classList.toggle('is-active')
